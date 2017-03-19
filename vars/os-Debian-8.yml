@@ -1,0 +1,7 @@
+---
+nginx_repo_tasks:
+  - debian-key.yml
+  - debian-repository.yml
+
+nginx_repo_template: repository.debian
+nginx_repo_key: http://nginx.org/keys/nginx_signing.key

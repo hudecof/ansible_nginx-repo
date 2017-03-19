@@ -1,0 +1,4 @@
+---
+# defaults file for nginx-repo
+
+nginx_repo_version: stable

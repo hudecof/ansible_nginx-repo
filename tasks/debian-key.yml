@@ -1,0 +1,9 @@
+---
+- name: debian | import key
+  apt_key:
+    url: "{{ nginx_repo_key }}"
+    state: present
+    keyring: /etc/apt/trusted.gpg.d/nginx.gpg
+  tags:
+    - nginx-repo
+    - nginx-repo:key

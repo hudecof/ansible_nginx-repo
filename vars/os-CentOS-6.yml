@@ -1,0 +1,5 @@
+---
+nginx_repo_tasks:
+  - centos-repository.yml
+
+nginx_repo_template: repository.centos
