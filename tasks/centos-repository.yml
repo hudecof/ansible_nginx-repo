@@ -1,5 +1,5 @@
 ---
-- name: redhat | add repository
+- name: centos | add repository
   template:
     src: "{{ nginx_repo_template }}.{{ nginx_repo_version }}.j2"
     dest: /etc/yum.repos.d/nginx.repo

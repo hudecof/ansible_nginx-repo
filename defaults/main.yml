@@ -2,3 +2,5 @@
 # defaults file for nginx-repo
 
 nginx_repo_version: stable
+nginx_repo_cache_dir: /tmp
+nginx_repo_key: http://nginx.org/keys/nginx_signing.key
