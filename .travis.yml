@@ -16,7 +16,7 @@ install:
 - pip install molecule==1.20.3
 
 script:
-- cd ../ && mv ansible_nginx-repo hudecof.nginx-repo && cd hudecof.nginx-repo
+- cd ../ && mv ansible_nginx_repo hudecof.nginx-repo && cd hudecof.nginx-repo
 - molecule test
 
 notifications:
