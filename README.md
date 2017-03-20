@@ -1,7 +1,7 @@
 # nginx-repo
 
 - CNC: [![build status](https://source.cnc.sk/ansible/role-nginx-repo/badges/master/build.svg)](https://source.cnc.sk/ansible/role-nginx-repo/commits/master)
-- GitHub:
+- GitHub: [![Build Status](https://travis-ci.org/hudecof/ansible_nginx_repo.svg?branch=master)](https://travis-ci.org/hudecof/ansible_nginx_repo)
 
 
 Install official nginx repository, see **http://nginx.org/en/linux_packages.html**
