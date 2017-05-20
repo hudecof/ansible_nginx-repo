@@ -11,6 +11,9 @@ docker:
     - name: debian-8
       image: debian
       image_version: 8
+    - name: debian-9
+      image: debian
+      image_version: 9
     - name: centos-6
       image: centos
       image_version: 6
