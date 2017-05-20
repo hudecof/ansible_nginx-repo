@@ -1,0 +1,3 @@
+---
+nginx_repo_tasks:
+  - unsuported.yml
