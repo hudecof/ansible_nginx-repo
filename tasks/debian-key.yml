@@ -1,4 +1,14 @@
 ---
+- name: "debian | install packages"
+  apt:
+    pkg: "{{ item }}"
+    state: present
+  with_items:
+    - gpgv
+  tags:
+    - nginx-repo
+    - nginx-repo:key
+
 - name: "debian | set key name"
   set_fact:
     nginx_repo_key_name: "{{nginx_repo_key|basename}}"
