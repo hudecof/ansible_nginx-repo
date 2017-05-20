@@ -1,0 +1,6 @@
+---
+nginx_repo_tasks:
+  - debian-key.yml
+  - debian-repository.yml
+
+nginx_repo_template: repository.debian
