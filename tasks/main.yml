@@ -1,22 +1,39 @@
 ---
 # tasks file for nginx-repo
 
-- name: "common | set os specific variables"
+- name: "set os specific variables"
   include_vars: "{{ item }}"
   with_first_found:
-   - "os-{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml"
-   - "os-{{ ansible_distribution }}-{{ ansible_distribution_version }}.yml"
-   - "os-{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
-   - "os-{{ ansible_distribution }}.yml"
-   - "os-default.yml"
+    - "os-{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml"
+    - "os-{{ ansible_distribution }}-{{ ansible_distribution_version }}.yml"
+    - "os-{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
+    - "os-{{ ansible_distribution }}.yml"
   tags:
     - nginx-repo
+    - nginx-repo:package
+    - nginx-repo:key
+    - nginx-repo:repository
 
-
-- name: "run os specific tasks"
-  include: "{{ task_item }}"
-  with_items: "{{ nginx_repo_tasks }}"
-  loop_control:
-    loop_var: task_item
+- name: "include package tasks (os)"
+  include: packages-{{ ansible_os_family }}.yml
   tags:
     - nginx-repo
+    - nginx-repo:package
+
+- name: "include download key tasks"
+  include: key-common.yml
+  tags:
+    - nginx-repo
+    - nginx-repo:key
+
+- name: "include download key tasks (os)"
+  include: key-{{ ansible_os_family }}.yml
+  tags:
+    - nginx-repo
+    - nginx-repo:key
+
+- name: "include repository tasks (os)"
+  include: repository-{{ ansible_os_family }}.yml
+  tags:
+    - nginx-repo
+    - nginx-repo:repository

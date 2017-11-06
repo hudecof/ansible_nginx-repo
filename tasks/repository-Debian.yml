@@ -1,18 +1,12 @@
 ---
-- name: debian | add repository
+- name: "add repository (debian)"
   template:
     src: "{{ nginx_repo_template }}.{{ nginx_repo_version }}.j2"
     dest: /etc/apt/sources.list.d/nginx.list
   register: repository
-  tags:
-    - nginx-repo
-    - nginx-repo:repository
 
-- name: debian | repository update
+- name: "repository update (debian)"
   apt:
     cache_valid_time: 0
     update_cache: yes
   when: repository|changed
-  tags:
-    - nginx-repo
-    - nginx-repo:repository

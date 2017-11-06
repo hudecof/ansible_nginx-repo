@@ -1,0 +1,4 @@
+---
+__nginx_repo_template: repository.debian
+__nginx_repo_packages:
+  - {'name': 'gpgv', 'state': 'present'}
