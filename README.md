@@ -1,6 +1,5 @@
 # nginx-repo
 
-- CNC: [![build status](https://source.cnc.sk/ansible/role-nginx-repo/badges/master/build.svg)](https://source.cnc.sk/ansible/role-nginx-repo/commits/master)
 - GitHub: [![Build Status](https://travis-ci.org/hudecof/ansible_nginx_repo.svg?branch=master)](https://travis-ci.org/hudecof/ansible_nginx_repo)
 
 
@@ -27,5 +26,4 @@ BSD
 ## Author Information
 
 Peter Hudec
-CNC, a.s.
-Slovakia
+
