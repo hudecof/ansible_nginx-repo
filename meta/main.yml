@@ -1,26 +1,23 @@
 ---
 galaxy_info:
+  repo_name: nginx-repo
   author: Peter Hudec
   description: install official nginx repository
-  company: CNC, a.s.
-
   license: BSD
-
   min_ansible_version: 2.1
-
   platforms:
   - name: Ubuntu
     versions:
     - precise
     - trusty
     - xenial
+    - bionic
   - name: Debian
     versions:
     - jessie
-    - wheezy
+    - stretch
   - name: EL
     versions:
-    - 5
     - 6
     - 7
 
