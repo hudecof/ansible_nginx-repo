@@ -1,6 +1,6 @@
 ---
 galaxy_info:
-  repo_name: nginx-repo
+  role_name: nginx-repo
   author: Peter Hudec
   description: install official nginx repository
   license: BSD
@@ -22,6 +22,7 @@ galaxy_info:
     - 7
 
   galaxy_tags:
+    - packaging
     - nginx
 
 dependencies: []
