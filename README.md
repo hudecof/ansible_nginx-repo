@@ -1,29 +1,38 @@
-# nginx-repo
+# Repo: NGINX
 
-- GitHub: [![Build Status](https://travis-ci.org/hudecof/ansible_nginx_repo.svg?branch=master)](https://travis-ci.org/hudecof/ansible_nginx_repo)
+Manage NGING official repositories.
 
+# Requirements
 
-Install official nginx repository, see **http://nginx.org/en/linux_packages.html**
+For supported systems  see http://nginx.org/en/linux_packages.html. If yhour system is not supported,
+the role tasks will be skipped.
 
-## Role Variables
+For supported system by this role, see the `vars/os-<system>` files.
 
-`nginx_repo_version` could be **[stable](http://nginx.org/en/linux_packages.html#stable)**(default) or **[mainline](http://nginx.org/en/linux_packages.html#mainline)**.
+Feel free to add any new linux distribution and version if missing.
 
-`nginx_repo_key` is the URL for the GPG public key usedto Sign the debian/ubuntu packages. Ypu do not need to change this value.
+# Role Variables
 
-`nginx_repo_cache_dir` is the directorywhere is the `nginx_repo_key ` saved, defaults is **/tmp**. The `nginx_repo_key `is first downloadedand than imported. It wolrs like a local cache. In my playbooks I use value **{{playbook_dir}}/files/nginx**.
+- `nginx_repo_version`: the nginx version to install (__stable__ or __mainline__)
+- `nginx_repo_state`: define presence of the repository
 
-## Example Playbook
+# Dependencies
 
-    - hosts: servers
-      roles:
-         - hudecof.nginx-repo
+There no external dependencies.
 
-## License
+# Example Playbook
+
+```
+- hosts: servers
+  roles:
+     - hudecof.repo_nginx
+```
+
+# License
 
 BSD
 
-## Author Information
+# Author Information
 
-Peter Hudec
 
+- Peter Hudec (@hudecof)

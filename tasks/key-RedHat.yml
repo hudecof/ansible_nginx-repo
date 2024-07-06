@@ -1,5 +1,0 @@
----
-- name: "import key (redhat)"
-  rpm_key:
-    key: "{{ nginx_repo_tmp_dir }}/{{ nginx_repo_key_file }}"
-    state: present

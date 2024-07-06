@@ -1,8 +1,0 @@
----
-- name: "check packages (debian)"
-  apt:
-    pkg: "{{ package.name }}"
-    state: "{{ package.state }}"
-  with_items: "{{ nginx_repo_packages }}"
-  loop_control:
-    loop_var: package

@@ -1,5 +1,16 @@
 ---
-- name: "add repository (centos)"
-  template:
-    src: "{{ nginx_repo_template }}.{{ nginx_repo_version }}.j2"
-    dest: /etc/yum.repos.d/nginx.repo
+
+- name: "add nginx repository"
+  ansible.builtin.template:
+    src: "repository-Redhat.j2"
+    dest: "{{ nginx_repo_file }}"
+    owner: root
+    group: root
+    mode: 0644
+  when: nginx_repo_state
+
+- name: "remove nginx repository"
+  ansible.builtin.file:
+    path: "{{ nginx_repo_file }}"
+    state: absent
+  when: not nginx_repo_state

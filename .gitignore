@@ -1,2 +1,2 @@
-.molecule
 *.swp
+__pycache__

@@ -1,9 +1,5 @@
 ---
-# defaults file for nginx-repo
 
-nginx_repo_version: stable
-nginx_repo_template: "{{ __nginx_repo_template }}"
-nginx_repo_cache_dir: /tmp
-nginx_repo_tmp_dir: /tmp
-nginx_repo_packages: "{{ __nginx_repo_packages }}"
-nginx_repo_key: http://nginx.org/keys/nginx_signing.key
+nginx_repo_version_stable: true
+nginx_repo_version_mainline: false
+nginx_repo_state: true

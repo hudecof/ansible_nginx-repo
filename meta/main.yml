@@ -1,28 +1,23 @@
 ---
 galaxy_info:
-  role_name: nginx-repo
+  role_name: nginx_repo
   author: Peter Hudec
-  description: install official nginx repository
+  description: manage nginx official repository
+  company: 5ok s.r.o.
   license: BSD
-  min_ansible_version: 2.1
+  min_ansible_version: 2.4
   platforms:
-  - name: Ubuntu
-    versions:
-    - precise
-    - trusty
-    - xenial
-    - bionic
-  - name: Debian
-    versions:
-    - jessie
-    - stretch
-  - name: EL
-    versions:
-    - 6
-    - 7
-
+    - name: EL
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - all
   galaxy_tags:
-    - packaging
     - nginx
-
+    - system
+    - repository
 dependencies: []

@@ -1,2 +1,7 @@
 ---
-# vars file for nginx-repo
+nginx_repo_map_os:
+  'CentOS': 'centos'
+  'RedHat': 'rhel'
+  'Debian': 'debian'
+  'Ubuntu': 'ubuntu'
+

@@ -1,6 +1,0 @@
----
-- name: "import key (debian)"
-  apt_key:
-    file: "{{ nginx_repo_tmp_dir }}/{{ nginx_repo_key_file }}"
-    state: present
-    keyring: /etc/apt/trusted.gpg.d/nginx.gpg

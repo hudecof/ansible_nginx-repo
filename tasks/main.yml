@@ -1,39 +1,20 @@
 ---
-# tasks file for nginx-repo
 
-- name: "set os specific variables"
-  include_vars: "{{ item }}"
+- name: "os specific variables"
+  ansible.builtin.include_vars: "{{ item }}"
   with_first_found:
-    - "os-{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml"
     - "os-{{ ansible_distribution }}-{{ ansible_distribution_version }}.yml"
     - "os-{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
     - "os-{{ ansible_distribution }}.yml"
+    - "os-{{ ansible_os_family }}.yml"
+    - "os-default.yml"
   tags:
-    - nginx-repo
-    - nginx-repo:package
-    - nginx-repo:key
-    - nginx-repo:repository
+    - always
 
-- name: "include package tasks (os)"
-  include: packages-{{ ansible_os_family }}.yml
-  tags:
-    - nginx-repo
-    - nginx-repo:package
-
-- name: "include download key tasks"
-  include: key-common.yml
-  tags:
-    - nginx-repo
-    - nginx-repo:key
-
-- name: "include download key tasks (os)"
-  include: key-{{ ansible_os_family }}.yml
-  tags:
-    - nginx-repo
-    - nginx-repo:key
-
-- name: "include repository tasks (os)"
-  include: repository-{{ ansible_os_family }}.yml
-  tags:
-    - nginx-repo
-    - nginx-repo:repository
+- name: include packages tasks
+  ansible.builtin.include_tasks:
+    file: repository-{{ ansible_os_family }}.yml
+    apply:
+      tags:
+        - nginx_repo
+  when: nginx_repo_supported

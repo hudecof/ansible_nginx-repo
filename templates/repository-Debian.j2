@@ -1,0 +1,9 @@
+{{ ansible_managed | comment }}
+
+{% if nginx_repo_version_stable %}
+deb [signed-by={{ nginx_repo_key_dest }}] http://nginx.org/packages/{{ nginx_repo_map_os[ansible_distribution] }} {{ ansible_distribution_release }} nginx
+{% endif %}
+
+{% if nginx_repo_version_mainline %}
+deb [signed-by={{ nginx_repo_key_dest }}] http://nginx.org/packages/mainline/{{ nginx_repo_map_os[ansible_distribution] }} {{ ansible_distribution_release }} nginx
+{% endif %}

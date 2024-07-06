@@ -1,0 +1,19 @@
+{{ ansible_managed | comment }}
+
+[nginx-stable]
+name=nginx stable repo
+baseurl=http://nginx.org/packages/centos/$releasever/$basearch/
+gpgcheck=1
+enabled={% if nginx_repo_version_stable %}1{% else %}0{% endif %}
+
+gpgkey={{ nginx_repo_key_src }}
+module_hotfixes=true
+
+[nginx-mainline]
+name=nginx mainline repo
+baseurl=http://nginx.org/packages/mainline/centos/$releasever/$basearch/
+gpgcheck=1
+enabled={% if nginx_repo_version_mainline %}1{% else %}0{% endif %}
+
+gpgkey={{ nginx_repo_key_src }}
+module_hotfixes=true

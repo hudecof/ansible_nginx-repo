@@ -1,4 +1,11 @@
 ---
-__nginx_repo_template: repository.debian
-__nginx_repo_packages:
-  - {'name': 'gpgv', 'state': 'present'}
+
+nginx_repo_supported: true
+nginx_repo_key_src: https://nginx.org/keys/nginx_signing.key
+nginx_repo_key_dest: /usr/share/keyrings/nginx-archive-keyring.gpg
+nginx_repo_file: /etc/apt/sources.list.d/nginx.list
+nginx_repo_file_pin: /etc/apt/preferences.d/99nginx
+nginx_repo_dep:
+  - gnupg
+  - ca-certificates
+  - debian-archive-keyring
