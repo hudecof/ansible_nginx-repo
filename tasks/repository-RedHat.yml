@@ -1,15 +1,15 @@
 ---
 
-- name: "add nginx repository"
+- name: "Add nginx repository"
   ansible.builtin.template:
     src: "repository-Redhat.j2"
     dest: "{{ nginx_repo_file }}"
     owner: root
     group: root
-    mode: 0644
+    mode: "0644"
   when: nginx_repo_state
 
-- name: "remove nginx repository"
+- name: "Remove nginx repository"
   ansible.builtin.file:
     path: "{{ nginx_repo_file }}"
     state: absent

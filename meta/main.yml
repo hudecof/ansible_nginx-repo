@@ -1,11 +1,12 @@
 ---
 galaxy_info:
   role_name: nginx_repo
+  namespace: hudecof
   author: Peter Hudec
   description: manage nginx official repository
   company: 5ok s.r.o.
   license: BSD
-  min_ansible_version: 2.4
+  min_ansible_version: "2.4"
   platforms:
     - name: EL
       versions:

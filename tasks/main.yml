@@ -1,6 +1,6 @@
 ---
 
-- name: "os specific variables"
+- name: "OS specific variables"
   ansible.builtin.include_vars: "{{ item }}"
   with_first_found:
     - "os-{{ ansible_distribution }}-{{ ansible_distribution_version }}.yml"
@@ -11,7 +11,7 @@
   tags:
     - always
 
-- name: include packages tasks
+- name: "Include packages tasks"
   ansible.builtin.include_tasks:
     file: repository-{{ ansible_os_family }}.yml
     apply:

@@ -4,4 +4,3 @@ nginx_repo_map_os:
   'RedHat': 'rhel'
   'Debian': 'debian'
   'Ubuntu': 'ubuntu'
-

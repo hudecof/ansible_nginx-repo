@@ -1,48 +1,48 @@
 ---
-- name: "installing nginx required packages"
+- name: "Installing nginx required packages"
   ansible.builtin.apt:
     name: "{{ nginx_repo_dep }}"
     state: present
   when: nginx_repo_state
 
-- name: "importing nginx gpg key"
+- name: "Importing nginx gpg key"
   ansible.builtin.apt_key:
     state: present
     url: "{{ nginx_repo_key_src }}"
     keyring: "{{ nginx_repo_key_dest }}"
   when: nginx_repo_state
 
-- name: "add nginx repository"
+- name: "Add nginx repository"
   ansible.builtin.template:
     src: "repository-Debian.j2"
     dest: "{{ nginx_repo_file }}"
     owner: root
     group: root
-    mode: 0644
+    mode: "0644"
   when: nginx_repo_state
   register: nginx_repo_changed
 
-- name: "add nginx repository pin"
+- name: "Add nginx repository pin"
   ansible.builtin.template:
     src: "repository-Debian-pin.j2"
     dest: "{{ nginx_repo_file_pin }}"
     owner: root
     group: root
-    mode: 0644
+    mode: "0644"
   when: nginx_repo_state
 
-- name: "update repository cache"  # noqa 503
+- name: "Update repository cache"  # noqa no-handler
   ansible.builtin.apt:
     update_cache: true
   when: nginx_repo_changed.changed
 
-- name: "remove nginx repository"
+- name: "Remove nginx repository"
   ansible.builtin.file:
     path: "{{ nginx_repo_file }}"
     state: absent
   when: not nginx_repo_state
 
-- name: "remove nginx repository pin"
+- name: "Remove nginx repository pin"
   ansible.builtin.file:
     path: "{{ nginx_repo_file_pin }}"
     state: absent
